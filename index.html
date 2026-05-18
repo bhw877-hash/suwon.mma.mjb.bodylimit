@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>입영판정검사 결과 특기별 신체제한 사항</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="page" id="top">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="처음으로 이동">
+        <span class="brand-mark"><img src="./code1.png" alt="병무청 로고" /></span>
+        <span>경인지방병무청</span>
+      </a>
+      <a class="home-link" href="https://bhw877-hash.github.io/suwon.mma.mjbinfo/">모집병 안내</a>
+    </header>
+
+    <section class="hero">
+      <span class="hero-kicker">육군 모집병 제한 사항 확인</span>
+      <h1>특기별 제한 사항 자가점검</h1>
+      <p>
+        육군 모집병(기술행정병, 전문특기병 등)의 신체제한 사항과 신체요건을 간편하게 확인할 수 있습니다.<br />모집구분, 세부특기를 검색해 본인의 특기를 확인해 보세요.
+      </p>
+</section>
+
+    <section class="notice section">
+      <div class="notice-icon">!</div>
+      <div>
+        <strong>유의사항</strong><br />
+        본 페이지는 육군 각 특기별 신체제한 사항 및 신체요건을 쉽게 확인하기 위한 참고용 화면입니다.<br />선발취소 등 여부는 병무청에 문의하여 확인하시기 바랍니다.
+      </div>
+    </section>
+
+    <section class="section card filter-card" aria-label="필터 영역">
+      <div class="section-title">
+        <h2>특기별 검색</h2>
+        <span id="resultCount">0건</span>
+      </div>
+
+      <div class="filter-grid">
+        <div class="field">
+          <label for="armyFilter">군</label>
+          <select id="armyFilter" disabled aria-label="군별 필터는 육군으로 고정되어 있습니다." disabled aria-label="군 필터는 육군으로 고정">
+<option value="육군" selected>육군</option>
+</select>
+        </div>
+        <div class="field">
+          <label for="categoryFilter">모집구분</label>
+          <select id="categoryFilter"></select>
+        </div>
+        <div class="field field-wide">
+          <label for="keywordFilter">검색어</label>
+          <input id="keywordFilter" type="search" placeholder="특기명, 특기번호, 병과 검색" />
+        </div>
+      </div>
+
+      <div class="filter-actions">
+        <button type="button" class="primary-button" id="resetButton">필터 초기화</button>
+      </div>
+    </section>
+
+    <!-- 모집구분별 요약 카드: 누르면 해당 모집구분으로 필터링됩니다. -->
+    <section class="section summary-grid" id="summaryGrid" aria-label="모집구분별 요약"></section>
+
+
+    <section class="section result-section">
+      <div class="list-head">
+        <div>
+          <h2>특기별 신체제한 사항 및 신체요건</h2>
+          <p>2차 심리검사 결과 정밀검사 대상 여부는 아래 경로를 통해 확인하실 수 있습니다.<br />(PC) 병무청 홈페이지 → 민원신청 → 병역판정검사 → 병역판정검사 건강검진 결과조회<br />(모바일) 병무청 앱 → 민원서비스(민원신청) → 병역판정검사 → 병역판정검사 건강검진 결과조회</p>
+          </div>
+      </div>
+      <div class="card-list" id="cardList"></div>
+      <div class="empty" id="emptyMessage">
+        조건에 맞는 특기가 없습니다. 필터를 조정해 주세요.
+      </div>
+    </section>
+
+    <footer>
+      본 페이지는 생성형 AI를 활용하여 제작되었습니다.<br />
+      참고용으로 제작된 페이지로, 정확한 안내는 병무청에 문의하여 확인하시기 바랍니다.
+    </footer>
+  </main>
+
+  <button type="button" class="top-button" id="topButton" aria-label="맨 위로 이동">↑</button>
+  <script src="./script.js"></script>
+</body>
+</html>

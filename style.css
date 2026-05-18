@@ -1,0 +1,532 @@
+/* =========================================================
+   특기별 신체제한 사항 전체표 화면 CSS
+   - 모바일 QR 접속을 우선으로 설계했습니다.
+   - 색상은 기존 모집병 안내 페이지와 유사한 파란색 계열입니다.
+   ========================================================= */
+
+:root {
+  --primary: #174ea6;
+  --primary-dark: #0b3478;
+  --primary-soft: #e8f0fe;
+  --accent: #00a3a3;
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --warning-bg: #fff8e6;
+  --warning-line: #ffe2a8;
+  --shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+  --radius: 22px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  word-break: keep-all;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page {
+  width: 100%;
+  max-width: 920px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #eef5ff 0%, #f7f9fc 42%, #f5f7fb 100%);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.82);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary-dark);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+/* 상단 기관 로고 이미지 */
+.brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.home-link {
+  padding: 8px 11px;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.section {
+  margin: 18px 18px 0;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  margin: 16px 18px 14px;
+  padding: 28px 22px;
+  border-radius: 30px;
+  color: #fff;
+  background:
+    radial-gradient(circle at top right, rgba(0, 163, 163, 0.34), transparent 32%),
+    linear-gradient(135deg, #174ea6 0%, #0b3478 58%, #07265c 100%);
+  box-shadow: var(--shadow);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -58px;
+  bottom: -76px;
+  width: 180px;
+  height: 180px;
+  border: 28px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+}
+
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.hero h1 {
+  position: relative;
+  z-index: 1;
+  margin: 16px 0 10px;
+  font-size: clamp(27px, 7vw, 42px);
+  line-height: 1.18;
+  letter-spacing: -0.07em;
+}
+
+.hero p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 14px;
+  border: 1px solid var(--warning-line);
+  border-radius: 18px;
+  color: #6a4300;
+  background: var(--warning-bg);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.notice-icon {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffcc66;
+  color: #4a2f00;
+  font-weight: 900;
+}
+
+.card {
+  padding: 17px;
+  border: 1px solid rgba(229, 231, 235, 0.88);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.section-title {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 13px;
+}
+
+.section-title h2,
+.list-head h2 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: -0.05em;
+}
+
+.section-title span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 7px;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 13px;
+  border: 1px solid #d8dee9;
+  border-radius: 15px;
+  background: #fff;
+  color: var(--text);
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(23, 78, 166, 0.11);
+}
+
+.filter-actions {
+  margin-top: 12px;
+}
+
+.primary-button {
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  border-radius: 16px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  font-weight: 900;
+  box-shadow: 0 12px 20px rgba(23, 78, 166, 0.20);
+  cursor: pointer;
+}
+
+
+
+/* =============================
+   모집구분별 요약 카드
+   - 전체 데이터의 모집구분별 건수를 보여줍니다.
+   - 카드를 누르면 해당 모집구분으로 필터링됩니다.
+   ============================= */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.summary-card {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+  cursor: pointer;
+}
+
+.summary-card strong {
+  display: block;
+  color: var(--primary-dark);
+  font-size: 22px;
+  line-height: 1.1;
+}
+
+.summary-card span {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.summary-card:active {
+  transform: translateY(1px);
+}
+
+.result-section {
+  padding-bottom: 20px;
+}
+
+.list-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.list-head p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.card-list {
+  display: grid;
+  gap: 12px;
+}
+
+.limit-card {
+  overflow: hidden;
+  border: 1px solid rgba(229, 231, 235, 0.92);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+}
+
+.limit-card-head {
+  padding: 15px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  border-bottom: 1px solid #edf1f7;
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 9px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 25px;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.pill.gray {
+  background: #f2f5fa;
+  color: #475569;
+}
+
+.limit-card h3 {
+  margin: 0;
+  color: #111827;
+  font-size: 18px;
+  letter-spacing: -0.04em;
+}
+
+.limit-card h3 small {
+  display: inline-block;
+  margin-right: 7px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.limit-card-body {
+  display: grid;
+  gap: 11px;
+  padding: 15px;
+}
+
+.info-block {
+  padding: 13px;
+  border: 1px solid #edf1f7;
+  border-radius: 17px;
+  background: #fbfcff;
+}
+
+.info-block h4 {
+  margin: 0 0 9px;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.chip-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 9px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid #e1e7f0;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.chip.limit {
+  border-color: #cfe0ff;
+  background: #f5f8ff;
+  color: var(--primary-dark);
+}
+
+/* 2차 심리검사 결과 정밀검사 대상 제한사항은 눈에 띄도록 빨간 박스로 표시합니다. */
+.chip.warning-limit {
+  border-color: #fecaca;
+  background: #fff1f2;
+  color: #b91c1c;
+}
+
+.note-text {
+  margin: 0;
+  color: #4b5563;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.empty {
+  display: none;
+  padding: 24px 16px;
+  border: 1px dashed #cfd8ea;
+  border-radius: 20px;
+  background: #fff;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.empty.show {
+  display: block;
+}
+
+footer {
+  padding: 26px 18px 92px;
+  color: #6b7280;
+  font-size: 12px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.top-button {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--primary-dark);
+  font-size: 22px;
+  font-weight: 900;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.25);
+  cursor: pointer;
+}
+
+@media (min-width: 720px) {
+  .filter-grid {
+    grid-template-columns: minmax(110px, 0.75fr) minmax(140px, 0.9fr) minmax(280px, 2.2fr);
+    align-items: end;
+  }
+
+  .field-wide {
+    grid-column: auto;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .limit-card-body {
+    grid-template-columns: 1.3fr 1fr;
+  }
+
+  .info-block.note-block {
+    grid-column: 1 / -1;
+  }
+}
+
+
+/* 로고 음영 최소화: 첨부 로고 자체가 잘 보이도록 그림자를 제거합니다. */
+.brand-mark {
+  box-shadow: none !important;
+  background: transparent;
+}
+
+.brand-mark img {
+  filter: none;
+}
+
+
+/* 군별 필터는 육군으로 고정되어 있으므로 비활성화하되, 글자는 또렷하게 보이게 합니다. */
+select:disabled {
+  opacity: 1;
+  color: var(--text);
+  background-color: #f8fafc;
+  cursor: not-allowed;
+}
